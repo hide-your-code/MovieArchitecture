@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="minhdtm.example.movieapparchitecture.ui.MainViewModel" />
+    </data>
+
+    <minhdtm.example.movieapparchitecture.widget.NavigationBarContentFrameLayout
+        android:id="@+id/drawer_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.MainActivity"
+            tools:openDrawer="start">
+
+            <FrameLayout
+                android:id="@+id/fl_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/nav_host_fragment"
+                    android:name="minhdtm.example.movieapparchitecture.ui.DispatchInsertNavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    app:navGraph="@navigation/nav_main_graph" />
+
+                <View
+                    android:id="@+id/status_bar_scrim"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/status_bar_scrim" />
+            </FrameLayout>
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/navigation"
+                android:layout_width="@dimen/nav_drawer_width"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                app:insetForeground="@color/transparent"
+                app:menu="@menu/menu_navigation" />
+        </androidx.drawerlayout.widget.DrawerLayout>
+    </minhdtm.example.movieapparchitecture.widget.NavigationBarContentFrameLayout>
+</layout>

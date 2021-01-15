@@ -1,0 +1,13 @@
+<resources>
+    <!-- Welcome -->
+    <string name="app_name" translatable="false">MovieAppArchitecture</string>
+    <string name="welcome_get_started">Get started</string>
+    <string name="welcome_to_app">Welcome to \nCinema Architecture</string>
+    <string name="intro_app">This is an example of \nArchitecture Component Android</string>
+    <string name="description_app">Android Jetpack, Hilt, … and much more</string>
+
+    <!-- Title -->
+    <string name="title_home">Home</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_information">Information</string>
+</resources>
