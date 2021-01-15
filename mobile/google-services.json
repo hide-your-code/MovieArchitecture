@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "130873873532",
+    "project_id": "moviearchitec",
+    "storage_bucket": "moviearchitec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130873873532:android:d1e2ab2bf5a4cd9cf6a5f9",
+        "android_client_info": {
+          "package_name": "minhdtm.example.movieapparchitecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "130873873532-559glasticlqn9v54hknioc5udj4d95s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "minhdtm.example.movieapparchitecture",
+            "certificate_hash": "43c462f5ee213c811e95156d614a00f02e167444"
+          }
+        },
+        {
+          "client_id": "130873873532-usk5edk0l272rs5ebm0gstvuolab6jm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-X71eOWQ9IzcSHQzk1JXdZHP9PNgGiSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "130873873532-usk5edk0l272rs5ebm0gstvuolab6jm6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

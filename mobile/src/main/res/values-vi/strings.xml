@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Welcome -->
+    <string name="welcome_get_started">Bắt đầu nào</string>
+    <string name="welcome_to_app">Chào mừng đến với \nCinema Architecture</string>
+    <string name="intro_app">Đây là ví dụ về \nArchitecture Component</string>
+    <string name="description_app">Android Jetpack, Hilt, … và còn nhiều thứ khác nữa</string>
+
+    <!-- Title -->
+    <string name="title_movie">Movie thịnh hành</string>
+    <string name="title_tv">TV thịnh hành</string>
+    <string name="title_setting">Cài đặt</string>
+    <string name="title_information">Thông tin</string>
+
+    <!-- Menu home -->
+    <string name="menu_search">Tìm kiếm</string>
+
+    <!-- Tab Movie and TV -->
+    <string-array name="tab_movie_and_tv">
+        <item>Phổ biến</item>
+        <item>Hàng đầu</item>
+        <item>Sắp ra mắt</item>
+    </string-array>
+
+    <!-- Movie Detail -->
+    <string name="movie_detail_runtime">"%1$s tiếng %2$s phút"</string>
+    <string name="movie_detail_overview">Tóm tắt</string>
+    <string name="movie_detail_cast">Diễn viên hàng đầu</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- dp -->
+    <dimen name="dp_200">200dp</dimen>
+    <dimen name="dp_102">102dp</dimen>
+    <dimen name="dp_60">60dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_0">0dp</dimen>
+
+    <!-- Common text size -->
+    <dimen name="text_size_h1">22sp</dimen>
+    <dimen name="text_size_h2">20sp</dimen>
+    <dimen name="text_size_h3">16sp</dimen>
+
+    <!-- Navigation -->
+    <dimen name="nav_drawer_width">@dimen/match_parent</dimen>
+
+    <item name="match_parent" format="integer" type="dimen">-1</item>
+
+    <!-- Home Movie and TV -->
+<!--    <dimen name="height_movie_item">480dp</dimen>-->
+    <dimen name="width_movie_item">300dp</dimen>
+</resources>

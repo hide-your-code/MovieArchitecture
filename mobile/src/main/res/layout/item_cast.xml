@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cast"
+            type="minhdtm.example.model.Cast" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_profile"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{cast.profile}"
+            app:placeholder="@{@drawable/bg_avatar_placeholder}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/Widget.MovieArc.CircleImageView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
+            android:maxLines="2"
+            android:lines="2"
+            android:text="@{cast.originalName}"
+            android:textColor="@color/color_text_h1"
+            app:layout_constraintEnd_toEndOf="@id/iv_profile"
+            app:layout_constraintStart_toStartOf="@id/iv_profile"
+            app:layout_constraintTop_toBottomOf="@id/iv_profile"
+            tools:text="James Mangold" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center_horizontal"
+            android:maxLines="3"
+            android:textSize="12sp"
+            android:text="@{cast.character}"
+            android:textColor="@color/color_text_h4"
+            app:layout_constraintEnd_toEndOf="@id/iv_profile"
+            app:layout_constraintStart_toStartOf="@id/iv_profile"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            tools:text="Mollie" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

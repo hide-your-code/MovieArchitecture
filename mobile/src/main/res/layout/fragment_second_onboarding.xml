@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="minhdtm.example.movieapparchitecture.ui.onboarding.second.SecondOnboardingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_example"
+            app:layout_constraintBottom_toTopOf="@id/tv_intro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_intro"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MovieArc.OnboardingTitle"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:text="@string/intro_app"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@id/tv_description"
+            app:layout_constraintEnd_toStartOf="@id/text_end"
+            app:layout_constraintStart_toEndOf="@id/text_start" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_description"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_50"
+            style="@style/Widget.MovieArc.OnboardingDescription"
+            android:text="@string/description_app"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/text_end"
+            app:layout_constraintStart_toEndOf="@id/text_start" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/text_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/text_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

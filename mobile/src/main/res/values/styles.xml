@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text appearances -->
+
+    <!-- For titles, e.g. Onboarding Detail, ... -->
+    <style name="TextAppearance.MovieArc.H1" parent="@style/TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/google_sans</item>
+        <item name="android:fontFamily">@font/google_sans</item>
+        <item name="android:textSize">@dimen/text_size_h1</item>
+    </style>
+
+    <!-- For smaller titles, e.g. Item title -->
+    <style name="TextAppearance.MovieArc.H2" parent="TextAppearance.MovieArc.H1">
+        <item name="android:textSize">@dimen/text_size_h2</item>
+    </style>
+
+    <!-- For other prominent text -->
+    <style name="TextAppearance.MovieArc.H3" parent="TextAppearance.MovieArc.H1">
+        <item name="android:fontFamily">@font/google_sans_medium</item>
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="fontFamily">@font/google_sans_medium</item>
+    </style>
+
+    <!-- For button -->
+    <style name="TextAppearance.MovieArc.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/google_sans_medium</item>
+        <item name="android:fontFamily">@font/google_sans_medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- For tab layout home -->
+    <style name="TextAppearance.MovieArc.TabLayout" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/google_sans_medium</item>
+    </style>
+
+    <!-- Widget style -->
+    <style name="Widget.MovieArc" parent="@android:style/Widget.Material" />
+
+    <!-- Onboarding -->
+    <style name="Widget.MovieArc.OnboardingTitle">
+        <item name="android:textAppearance">@style/TextAppearance.MovieArc.H1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+
+    <style name="Widget.MovieArc.OnboardingDescription" parent="Widget.MovieArc.OnboardingTitle">
+        <item name="android:textAppearance">@style/TextAppearance.MovieArc.H3</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <!-- Navigation -->
+    <style name="Widget.MovieArc.NavigationBarContentFrameLayout" parent="android:Widget.Material">
+        <item name="navigationBarBorderColor">?attr/movieArcNavigationBarDividerColor</item>
+        <item name="navigationBarBorderSize">1dp</item>
+    </style>
+
+    <!-- Hashtag Drawer -->
+    <style name="Widget.MovieArc.HashtagCinemaDecoration">
+        <item name="android:drawable">@drawable/ic_footer_drawer</item>
+        <item name="margin">24dp</item>
+    </style>
+
+    <!-- App bar -->
+    <style name="Widget.MovieArc.AppBar">
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Circle image view -->
+    <style name="Widget.MovieArc.CircleImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
