@@ -1,5 +1,5 @@
 import java.io.FileInputStream
-import java.util.Properties
+import java.util.*
 
 plugins {
     id(BuildPlugins.androidLibraryPlugin)
@@ -21,6 +21,7 @@ android {
 
         buildConfigField("String", "API_KEY", getSecrets()["API_KEY"] as String)
         buildConfigField("String", "BASE_URL", getSecrets()["BASE_URL"] as String)
+        buildConfigField("String", "DATABASE_NAME", getSecrets()["DATABASE_NAME"] as String)
     }
 
     compileOptions {
@@ -30,7 +31,9 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-        freeCompilerArgs = freeCompilerArgs + "-Xallow-result-return-type"
+        freeCompilerArgs = freeCompilerArgs +
+                "-Xallow-result-return-type" +
+                "-Xopt-in=kotlin.RequiresOptIn"
     }
 }
 
@@ -73,4 +76,5 @@ dependencies {
     implementation(platform(Libraries.firebaseBom))
     implementation(Libraries.firebaseAnalytic)
     implementation(Libraries.firebaseCrashlytics)
+    implementation(Libraries.paging)
 }

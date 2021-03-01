@@ -5,24 +5,38 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import java.lang.reflect.Type
-import java.util.concurrent.TimeUnit
 import minhdtm.example.shared.BuildConfig
 import minhdtm.example.shared.data.remote.ApiClient
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.reflect.Type
+import java.util.concurrent.TimeUnit
 
 @Module
 @InstallIn(ApplicationComponent::class)
 class RemoteModule {
 
     @Provides
-    fun provideInterceptor(): HttpLoggingInterceptor =
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor =
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.HEADERS)
+
+    @Provides
+    fun provideRequestInterceptor(): Interceptor =
+        Interceptor { chain ->
+            var request = chain.request()
+            val url = request.url.newBuilder()
+                .addQueryParameter(PARAM_API_KEY, BuildConfig.API_KEY)
+                .build()
+            request = request.newBuilder()
+                .url(url)
+                .build()
+            chain.proceed(request)
+        }
 
     @Provides
     fun provideNullOnEmptyConverterFactory() = object : Converter.Factory() {
@@ -46,11 +60,13 @@ class RemoteModule {
 
     @Provides
     fun provideOkHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        requestInterceptor: Interceptor
     ): OkHttpClient = OkHttpClient.Builder()
         .callTimeout(TIME_OUT, TimeUnit.MINUTES)
         .connectTimeout(TIME_OUT, TimeUnit.MINUTES)
         .addInterceptor(httpLoggingInterceptor)
+        .addInterceptor(requestInterceptor)
         .build()
 
     @Provides
@@ -70,5 +86,6 @@ class RemoteModule {
 
     companion object {
         const val TIME_OUT: Long = 1
+        const val PARAM_API_KEY = "api_key"
     }
 }

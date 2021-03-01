@@ -141,11 +141,14 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), Navigat
 
     override fun registerToolbarWithNavigation(toolbar: Toolbar) {
         val appBarConfiguration = AppBarConfiguration(TOP_LEVEL_DESTINATION, binding.drawer)
-        toolbar.setupWithNavController(navController, appBarConfiguration)
+        toolbar.apply {
+            setupWithNavController(navController, appBarConfiguration)
+            inflateMenu(R.menu.menu_main)
+        }
     }
 
     override fun onBackPressed() {
-        if (binding.drawer.isDrawerOpen(binding.navigation) && binding.drawer.shouldCloseFromBackPress()) {
+        if (binding.drawer.isDrawerOpen(binding.navigation)) {
             binding.drawer.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
