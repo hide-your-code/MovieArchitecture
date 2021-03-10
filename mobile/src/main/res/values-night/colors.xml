@@ -12,4 +12,10 @@
 
     <!-- In dark mode without light status bar we can use transparent -->
     <color name="status_bar_scrim">@color/transparent</color>
+
+    <!-- Tab layout -->
+    <color name="color_tab_select">#FFFFFF</color>
+    <color name="color_tab">#80FFFFFF</color>
+    <color name="color_stoke_genre">#59FFFFFF</color>
+    <color name="color_text_genre">#BFFFFFFF</color>
 </resources>

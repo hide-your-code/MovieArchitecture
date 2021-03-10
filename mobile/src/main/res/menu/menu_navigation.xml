@@ -6,10 +6,16 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/navigation_home"
-            android:contentDescription="@string/title_home"
+            android:id="@+id/navigation_movie_trending"
+            android:contentDescription="@string/title_movie"
             android:icon="@drawable/ic_home"
-            android:title="@string/title_home" />
+            android:title="@string/title_movie" />
+
+        <item
+            android:id="@+id/navigation_tv_trending"
+            android:contentDescription="@string/title_tv"
+            android:icon="@drawable/ic_home"
+            android:title="@string/title_tv" />
     </group>
 
     <group
