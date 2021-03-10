@@ -17,7 +17,7 @@ import timber.log.Timber
 abstract class CoreFragment<Binding : ViewDataBinding, VM : ViewModel> : Fragment() {
 
     protected val navController by lazy { findNavController() }
-    protected var binding by autoClear<Binding>()
+    protected var binding: Binding by autoClear()
 
     protected abstract val viewModel: VM
 
@@ -31,7 +31,7 @@ abstract class CoreFragment<Binding : ViewDataBinding, VM : ViewModel> : Fragmen
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.apply {
+        binding.run {
             setVariable(BR.viewModel, viewModel)
             lifecycleOwner = viewLifecycleOwner
         }

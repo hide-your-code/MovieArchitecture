@@ -15,7 +15,7 @@ class FirebaseAnalyticsHelper @Inject constructor(
 ) : AnalyticsHelper {
 
     override fun sendScreenView(screenName: String, activity: Activity, fragment: Fragment?) {
-        analytics.apply {
+        analytics.run {
             logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
                 param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
                 param(FirebaseAnalytics.Param.SCREEN_CLASS, activity.localClassName)

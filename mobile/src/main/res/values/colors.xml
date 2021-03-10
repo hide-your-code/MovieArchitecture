@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">@color/deep_sky_blue</color>
-    <color name="color_primary_dark">@color/warm_blue</color>
+    <color name="color_primary">@color/blue_300</color>
+    <color name="color_primary_dark">@color/blue_500</color>
     <color name="color_on_secondary">@color/white</color>
 
     <color name="color_control_light">#39000000</color>
 
+    <color name="color_background">@color/white</color>
+
     <!-- Scrim colors -->
-    <color name="system_ui_scrim_light">#B3FFFFFF</color> <!-- 70% white -->
+    <color name="system_ui_scrim_light">#4DFFFFFF</color> <!-- 70% white -->
     <color name="system_ui_scrim_black">#40000000</color> <!-- 25% black -->
 
     <!-- We use a dark scrim by default since light status is API 23+ -->
@@ -18,10 +20,11 @@
     <color name="black_80">#80000000</color>
     <color name="black_aa">#aa000000</color>
 
-    <!-- Tab layout -->
     <color name="color_tab_indicator">#FE6D8E</color>
-    <color name="color_tab_select">#000000</color>
-    <color name="color_tab">#4D12153D</color>
-    <color name="color_stoke_genre">#2612153D</color>
-    <color name="color_text_genre">#434670</color>
+    <color name="color_stoke">#2612153D</color>
+
+    <color name="color_text_h1">#12153D</color>
+    <color name="color_text_h2">#434670</color>
+    <color name="color_text_h3">#737599</color>
+    <color name="color_text_h4">#9A9BB2</color>
 </resources>

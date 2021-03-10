@@ -1,12 +1,15 @@
 package minhdtm.example.movieapparchitecture.extension
 
+import android.util.TypedValue
 import android.view.View
 import android.view.View.OnAttachStateChangeListener
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-private fun createStateForView(view: View) = ViewPaddingState(view.paddingLeft,
-    view.paddingTop, view.paddingRight, view.paddingBottom, view.paddingStart, view.paddingEnd)
+private fun createStateForView(view: View) = ViewPaddingState(
+    view.paddingLeft,
+    view.paddingTop, view.paddingRight, view.paddingBottom, view.paddingStart, view.paddingEnd
+)
 
 fun View.doOnApplyWindowInserts(f: (View, WindowInsetsCompat, ViewPaddingState) -> Unit) {
     val paddingState = createStateForView(this)
@@ -32,6 +35,10 @@ fun View.requestApplyWhenAttached() {
 }
 
 fun View.isRtl() = layoutDirection == View.LAYOUT_DIRECTION_RTL
+
+fun View.dpToPx(dp: Float): Float = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.displayMetrics)
+
+fun View.showIf(isShow: Boolean) = if (isShow) View.VISIBLE else View.GONE
 
 data class ViewPaddingState(
     val left: Int,

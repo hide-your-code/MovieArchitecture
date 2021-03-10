@@ -64,6 +64,14 @@ dependencies {
 
     debugImplementation(Libraries.leakCanary)
 
+    testImplementation(Libraries.junit)
+    testImplementation(Libraries.robolectric)
+    testImplementation(Libraries.mockito)
+    testImplementation(Libraries.mock_k)
+    testImplementation(Libraries.mock_k_android)
+    testImplementation(Libraries.power_mock_junit)
+    testImplementation(Libraries.power_mock_mockito)
+
     kapt(Libraries.lifecycleCompiler)
     kapt(Libraries.hiltCompiler)
     kapt(Libraries.hiltAndroidXCompiler)
@@ -81,6 +89,7 @@ dependencies {
     implementation(Libraries.hilt)
     implementation(Libraries.hiltLifeCycle)
     implementation(Libraries.liveData)
+    implementation(Libraries.lifecycleJava8)
     implementation(Libraries.fragment)
     implementation(Libraries.constraintLayout)
     implementation(Libraries.material)
@@ -99,4 +108,5 @@ dependencies {
     implementation(Libraries.indicator)
     implementation(Libraries.glide)
     implementation(Libraries.paging)
+    implementation(Libraries.shimmer)
 }

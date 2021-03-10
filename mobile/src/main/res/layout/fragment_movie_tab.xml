@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="minhdtm.example.movieapparchitecture.ui.home.movietab.MovieTabViewModel" />
+            type="minhdtm.example.movieapparchitecture.ui.movietrending.movietab.MovieTabViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +27,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_movie_genre" />
+            tools:listitem="@layout/item_movie_genre_medium" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_star"
@@ -37,7 +37,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="20dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_star_home"
+            android:src="@drawable/ic_star_enable"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tv_vote_average"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -48,6 +48,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/google_sans_medium"
+            android:text="@{Float.toString(viewModel.itemPosition.voteAverage)}"
+            android:textColor="@color/color_text_h2"
             app:layout_constraintBottom_toBottomOf="@id/iv_star"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -57,16 +59,17 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_name"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/google_sans_medium"
+            android:textSize="18sp"
             android:singleLine="true"
+            android:text="@{viewModel.itemPosition.title}"
             android:textAlignment="center"
-            app:autoSizeMaxTextSize="22sp"
-            app:autoSizeMinTextSize="18sp"
-            app:autoSizeTextType="uniform"
+            android:textColor="@color/color_text_h1"
+            app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toTopOf="@id/iv_star"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 
 abstract class CoreActivity<ViewBinding : ViewDataBinding, VM : ViewModel> : AppCompatActivity() {
 
-    lateinit var binding: ViewBinding
+    var binding: ViewBinding? = null
 
     abstract val viewModel: VM
 
@@ -21,6 +21,11 @@ abstract class CoreActivity<ViewBinding : ViewDataBinding, VM : ViewModel> : App
 
         // Binding
         binding = DataBindingUtil.setContentView(this, layoutId)
-        binding.lifecycleOwner = this
+        binding?.lifecycleOwner = this
+    }
+
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
     }
 }

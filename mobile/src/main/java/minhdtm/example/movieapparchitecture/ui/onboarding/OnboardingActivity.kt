@@ -36,7 +36,7 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding, OnboardingVie
 
     private fun setupFragment() {
         // Immersive mode so images can draw behind the status bar
-        binding.fragmentContainer.doOnApplyWindowInserts { view, windowInsetsCompat, viewPaddingState ->
+        binding?.fragmentContainer?.doOnApplyWindowInserts { view, windowInsetsCompat, viewPaddingState ->
             view.updatePadding(top = viewPaddingState.top + windowInsetsCompat.systemWindowInsetTop)
         }
     }

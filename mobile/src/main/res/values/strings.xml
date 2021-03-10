@@ -21,4 +21,9 @@
         <item>Top Rated</item>
         <item>Upcoming</item>
     </string-array>
+
+    <!-- Movie Detail -->
+    <string name="movie_detail_runtime">"%1$sh %2$smin"</string>
+    <string name="movie_detail_overview">Overview</string>
+    <string name="movie_detail_cast">Top Billed Cast</string>
 </resources>

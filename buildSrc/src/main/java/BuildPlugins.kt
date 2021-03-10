@@ -1,10 +1,10 @@
 object BuildPlugins {
     object Versions {
         const val buildTools = "4.1.2"
-        const val hilt = "2.29.1-alpha"
-        const val navigation = "2.3.1"
-        const val googlePlayService = "4.3.4"
-        const val firebaseAnalytics = "2.4.1"
+        const val hilt = "2.33-beta"
+        const val navigation = "2.3.4"
+        const val googlePlayService = "4.3.5"
+        const val firebaseAnalytics = "2.5.2"
     }
 
     // Java

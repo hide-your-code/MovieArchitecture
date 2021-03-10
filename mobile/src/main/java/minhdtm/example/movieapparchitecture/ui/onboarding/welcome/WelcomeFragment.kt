@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import minhdtm.example.movieapparchitecture.R
@@ -13,7 +14,7 @@ import minhdtm.example.movieapparchitecture.extension.eventObserve
 import minhdtm.example.movieapparchitecture.ui.MainActivity
 import minhdtm.example.movieapparchitecture.ui.base.BaseFragment
 import minhdtm.example.movieapparchitecture.util.Constant.ScreenName.FRAGMENT_WELCOME
-import minhdtm.example.movieapparchitecture.util.helper.ViewPager2Helper
+import minhdtm.example.movieapparchitecture.widget.ViewPager2Helper
 
 @AndroidEntryPoint
 class WelcomeFragment : BaseFragment<FragmentWelcomeBinding, WelcomeViewModel>() {
@@ -36,8 +37,8 @@ class WelcomeFragment : BaseFragment<FragmentWelcomeBinding, WelcomeViewModel>()
         }
     }
 
-    override fun initView() {
-        super.initView()
+    override fun initView(view: View) {
+        super.initView(view)
 
         setupViewPager()
     }

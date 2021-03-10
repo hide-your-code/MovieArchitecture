@@ -9,5 +9,5 @@ fun <T> LiveData<Event<T>>.eventObserve(owner: LifecycleOwner, observer: (t: T) 
 }
 
 fun <T> LiveData<T>.nonNullObserve(owner: LifecycleOwner, observer: (t: T) -> Unit) {
-    this.observe(owner) { it?.let(observer) }
+    this.observe(owner, { it?.let(observer) })
 }

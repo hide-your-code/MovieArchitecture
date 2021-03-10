@@ -1,14 +1,12 @@
 package minhdtm.example.movieapparchitecture.ui.base
 
-import android.os.Build
 import android.os.Bundle
-import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
-import javax.inject.Inject
 import minhdtm.example.movieapparchitecture.core.CoreActivity
 import minhdtm.example.shared.analytics.AnalyticsHelper
 import timber.log.Timber
+import javax.inject.Inject
 
 abstract class BaseActivity<ViewBinding : ViewDataBinding, VM : ViewModel> : CoreActivity<ViewBinding, VM>() {
 

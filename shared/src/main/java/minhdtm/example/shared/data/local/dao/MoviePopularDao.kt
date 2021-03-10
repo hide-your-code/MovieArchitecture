@@ -8,9 +8,9 @@ import minhdtm.example.shared.data.local.entities.MoviePopularEntity
 @Dao
 interface MoviePopularDao : BaseDao<MoviePopularEntity> {
 
-    @Query("SELECT * FROM movie_popular ORDER BY id DESC")
-    fun movie(): PagingSource<Int, MoviePopularEntity>
-
-    @Query("DELETE FROM movie_popular")
-    suspend fun clearAll()
+//    @Query("SELECT * FROM movie_popular ORDER BY id DESC")
+//    fun movie(): PagingSource<Int, MoviePopularEntity>
+//
+//    @Query("DELETE FROM movie_popular")
+//    suspend fun clearAll()
 }

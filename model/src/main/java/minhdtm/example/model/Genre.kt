@@ -3,18 +3,16 @@ package minhdtm.example.model
 import com.google.gson.annotations.SerializedName
 
 data class Genres(
+
     @SerializedName("genres")
-    val genres: List<Genre>? = null
-) {
-    companion object {
-        val empty = Genres(emptyList())
-    }
-}
+    val genres: List<Genre> = emptyList()
+)
 
 data class Genre(
+
     @SerializedName("id")
-    val id: Int? = null,
+    val id: Int = 0,
 
     @SerializedName("name")
-    val name: String? = null
+    val name: String = ""
 )

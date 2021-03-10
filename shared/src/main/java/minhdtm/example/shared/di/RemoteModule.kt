@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import minhdtm.example.shared.BuildConfig
 import minhdtm.example.shared.data.remote.ApiClient
 import okhttp3.Interceptor
@@ -18,7 +18,7 @@ import java.lang.reflect.Type
 import java.util.concurrent.TimeUnit
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 class RemoteModule {
 
     @Provides

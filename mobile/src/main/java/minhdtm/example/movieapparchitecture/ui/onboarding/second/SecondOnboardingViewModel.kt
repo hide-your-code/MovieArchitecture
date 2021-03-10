@@ -1,6 +1,8 @@
 package minhdtm.example.movieapparchitecture.ui.onboarding.second
 
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import minhdtm.example.movieapparchitecture.ui.base.BaseViewModel
+import javax.inject.Inject
 
-class SecondOnboardingViewModel @ViewModelInject constructor() : ViewModel()
+@HiltViewModel
+class SecondOnboardingViewModel @Inject constructor() : BaseViewModel()

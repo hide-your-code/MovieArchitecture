@@ -46,12 +46,24 @@ dependencies {
 
     debugImplementation(Libraries.leakCanary)
 
+    testImplementation(Libraries.junit)
+    testImplementation(Libraries.robolectric)
+    testImplementation(Libraries.mockito)
+
     kapt(Libraries.lifecycleCompiler)
     kapt(Libraries.hiltCompiler)
     kapt(Libraries.hiltAndroidXCompiler)
     kapt(Libraries.roomCompiler)
     compileOnly(Libraries.javaxAnnotation)
     compileOnly(Libraries.javaxInject)
+
+    testImplementation(Libraries.junit)
+    testImplementation(Libraries.robolectric)
+    testImplementation(Libraries.mockito)
+    testImplementation(Libraries.mock_k)
+    testImplementation(Libraries.mock_k_android)
+    testImplementation(Libraries.power_mock_junit)
+    testImplementation(Libraries.power_mock_mockito)
 
     implementation(Libraries.kotlinStdLib)
     implementation(Libraries.kotlinCoroutines)

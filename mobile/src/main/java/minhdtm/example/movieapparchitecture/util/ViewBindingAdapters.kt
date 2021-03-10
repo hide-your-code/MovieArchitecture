@@ -4,36 +4,53 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.google.android.material.imageview.ShapeableImageView
 import minhdtm.example.movieapparchitecture.extension.addRadius
-import timber.log.Timber
+import minhdtm.example.movieapparchitecture.extension.imageUri
 
-@BindingAdapter(value = ["imageUri", "placeholder", "radius"], requireAll = false)
-fun imageUri(imageView: ShapeableImageView, imageUri: Uri?, placeholder: Drawable?, radius: Float) {
-    when (imageUri) {
-        null -> {
-            Timber.d("Unsetting image url")
-            Glide.with(imageView)
-                .load(placeholder)
-                .apply(RequestOptions().override(Target.SIZE_ORIGINAL))
-                .into(imageView)
-        }
-        else -> {
-            Glide.with(imageView)
-                .load(imageUri)
-                .apply(RequestOptions().placeholder(placeholder))
-                .apply(RequestOptions().override(Target.SIZE_ORIGINAL))
-                .into(imageView)
-        }
-    }
-
-    imageView.addRadius(radius)
+@BindingAdapter(
+    value = ["imageUri", "placeholder"],
+    requireAll = false
+)
+fun imageUri(
+    imageView: ShapeableImageView,
+    imageUri: Uri?,
+    placeholder: Drawable?
+) {
+    imageView.imageUri(imageUri, placeholder)
 }
 
-@BindingAdapter(value = ["imageUrl", "placeholder", "radius"], requireAll = false)
-fun imageUrl(imageView: ShapeableImageView, imageUrl: String?, placeholder: Drawable?, radius: Float) {
-    imageUri(imageView, imageUrl?.toUri(), placeholder, radius)
+@BindingAdapter(
+    value = ["imageUrl", "placeholder"],
+    requireAll = false
+)
+fun imageUrl(
+    imageView: ShapeableImageView,
+    imageUrl: String?,
+    placeholder: Drawable?
+) = imageUri(imageView, imageUrl?.toUri(), placeholder)
+
+@BindingAdapter(
+    value = ["radius", "radiusTopLeft", "radiusTopRight", "radiusBottomLeft", "radiusBottomRight"],
+    requireAll = false
+)
+fun imageRadius(
+    imageView: ShapeableImageView,
+    radius: Float?,
+    radiusTopLeft: Float?,
+    radiusTopRight: Float?,
+    radiusBottomLeft: Float?,
+    radiusBottomRight: Float?
+) {
+    when {
+        radius != null -> {
+            imageView.addRadius(radius)
+        }
+        radiusTopLeft != null || radiusTopRight != null || radiusBottomLeft != null || radiusBottomRight != null -> {
+            imageView.addRadius(radiusTopLeft, radiusTopRight, radiusBottomLeft, radiusBottomRight)
+        }
+        else -> {
+            return
+        }
+    }
 }

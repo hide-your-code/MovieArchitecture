@@ -2,7 +2,7 @@ package minhdtm.example.movieapparchitecture.extension
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
-import minhdtm.example.movieapparchitecture.util.helper.snap.SnapOnScrollListener
+import minhdtm.example.movieapparchitecture.widget.snap.SnapOnScrollListener
 
 fun SnapHelper.getSnapPosition(recyclerView: RecyclerView): Int {
     val layoutManager = recyclerView.layoutManager

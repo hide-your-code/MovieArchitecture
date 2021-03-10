@@ -1,6 +1,8 @@
 package minhdtm.example.movieapparchitecture.ui
 
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import minhdtm.example.movieapparchitecture.ui.base.BaseViewModel
+import javax.inject.Inject
 
-class MainViewModel @ViewModelInject constructor() : ViewModel()
+@HiltViewModel
+class MainViewModel @Inject constructor() : BaseViewModel()

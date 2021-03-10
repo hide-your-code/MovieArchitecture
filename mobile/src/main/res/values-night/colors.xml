@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">@color/carolina_blue</color>
-    <color name="color_primary_dark">@color/cornflower_blue</color>
+    <color name="color_primary">@color/blue_200</color>
+    <color name="color_primary_dark">@color/blue_400</color>
     <color name="color_on_secondary">@color/black</color>
 
     <color name="color_control_light">#2EFFFFFF</color> <!-- 18% white -->
+
+    <color name="color_background">@color/black_night</color>
 
     <!-- Scrim colors -->
     <color name="system_ui_scrim_light">#2EFFFFFF</color> <!-- 18% white -->
@@ -13,9 +15,10 @@
     <!-- In dark mode without light status bar we can use transparent -->
     <color name="status_bar_scrim">@color/transparent</color>
 
-    <!-- Tab layout -->
-    <color name="color_tab_select">#FFFFFF</color>
-    <color name="color_tab">#80FFFFFF</color>
-    <color name="color_stoke_genre">#59FFFFFF</color>
-    <color name="color_text_genre">#BFFFFFFF</color>
+    <color name="color_stoke">#59FFFFFF</color>
+
+    <color name="color_text_h1">#FFFFFF</color>
+    <color name="color_text_h2">#BFFFFFFF</color>
+    <color name="color_text_h4">#80FFFFFF</color>
+    <color name="color_text_h3">#80FFFFFF</color>
 </resources>

@@ -6,7 +6,7 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/navigation_movie_trending"
+            android:id="@id/navigation_movie_trending"
             android:contentDescription="@string/title_movie"
             android:icon="@drawable/ic_home"
             android:title="@string/title_movie" />

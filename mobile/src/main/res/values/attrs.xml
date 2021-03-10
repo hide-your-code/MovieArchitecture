@@ -19,4 +19,18 @@
         <attr name="android:drawable" />
         <attr name="margin" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="CircleProgressBar">
+        <attr name="min" format="integer" />
+        <attr name="max" format="integer" />
+        <attr name="progress" format="float" />
+        <attr name="progress_bar_color" format="color" />
+        <attr name="progress_bar_thickness" format="dimension" />
+        <attr name="text_visibility">
+            <enum name="gone" value="0" />
+            <enum name="visible" value="1" />
+        </attr>
+        <attr name="text_color" format="color" />
+        <attr name="text_size" format="dimension" />
+    </declare-styleable>
 </resources>

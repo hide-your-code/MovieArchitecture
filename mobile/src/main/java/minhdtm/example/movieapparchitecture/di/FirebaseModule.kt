@@ -8,13 +8,13 @@ import com.google.firebase.ktx.Firebase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
-import javax.inject.Singleton
+import dagger.hilt.components.SingletonComponent
 import minhdtm.example.movieapparchitecture.util.helper.FirebaseAnalyticsHelper
 import minhdtm.example.shared.analytics.AnalyticsHelper
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 class FirebaseModule {
 
     @Provides

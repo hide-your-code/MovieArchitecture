@@ -21,4 +21,9 @@
         <item>Hàng đầu</item>
         <item>Sắp ra mắt</item>
     </string-array>
+
+    <!-- Movie Detail -->
+    <string name="movie_detail_runtime">"%1$s tiếng %2$s phút"</string>
+    <string name="movie_detail_overview">Tóm tắt</string>
+    <string name="movie_detail_cast">Diễn viên hàng đầu</string>
 </resources>

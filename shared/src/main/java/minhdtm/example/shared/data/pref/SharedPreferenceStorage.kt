@@ -18,11 +18,11 @@ class SharedPreferenceStorage @Inject constructor(
         context.applicationContext.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
     }
 
-    override var onboardingCompleted: Boolean by BooleanPreference(prefs, PREF_ONBOARDING, false)
+    override var onboardingCompleted: Boolean by BooleanPreference(prefs, KEY_ONBOARDING, false)
 
     companion object {
         private const val PREFS_NAME = "movie"
-        private const val PREF_ONBOARDING = "pref_onboarding"
+        private const val KEY_ONBOARDING = "key_onboarding"
     }
 }
 
@@ -54,4 +54,19 @@ class StringPreference(
     @WorkerThread
     override fun getValue(thisRef: Any, property: KProperty<*>): String =
         preferences.value.getString(name, defaultValue) ?: defaultValue
+}
+
+class IntegerPreference(
+    private val preferences: Lazy<SharedPreferences>,
+    private val name: String,
+    private val defaultValue: Int
+) : ReadWriteProperty<Any, Int> {
+
+    override fun setValue(thisRef: Any, property: KProperty<*>, value: Int) {
+        preferences.value.edit { putInt(name, value) }
+    }
+
+    @WorkerThread
+    override fun getValue(thisRef: Any, property: KProperty<*>): Int =
+        preferences.value.getInt(name, defaultValue)
 }

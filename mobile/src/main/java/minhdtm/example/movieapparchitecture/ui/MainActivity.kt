@@ -20,7 +20,6 @@ import minhdtm.example.movieapparchitecture.R
 import minhdtm.example.movieapparchitecture.databinding.ActivityMainBinding
 import minhdtm.example.movieapparchitecture.databinding.NavigationHeaderBinding
 import minhdtm.example.movieapparchitecture.extension.doOnApplyWindowInserts
-import minhdtm.example.movieapparchitecture.extension.shouldCloseFromBackPress
 import minhdtm.example.movieapparchitecture.extension.systemInsetsBottom
 import minhdtm.example.movieapparchitecture.extension.systemInsetsLeft
 import minhdtm.example.movieapparchitecture.extension.systemInsetsRight
@@ -44,9 +43,26 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), Navigat
 
     private var currentNavId = NAV_ID_NONE
 
-    private lateinit var navController: NavController
-    private lateinit var navHeaderBinding: NavigationHeaderBinding
+    private var navController: NavController? = null
+    private var navHeaderBinding: NavigationHeaderBinding? = null
     private var navHostFragment: NavHostFragment? = null
+
+    private val drawOnDestinationChangedListener: NavController.OnDestinationChangedListener by lazy {
+        NavController.OnDestinationChangedListener { _, destination, _ ->
+            currentNavId = destination.id
+            val isTopLevelDestination = TOP_LEVEL_DESTINATION.contains(destination.id)
+            val lockMode = if (isTopLevelDestination) {
+                DrawerLayout.LOCK_MODE_UNLOCKED
+            } else {
+                DrawerLayout.LOCK_MODE_LOCKED_CLOSED
+            }
+            binding?.drawer?.setDrawerLockMode(lockMode)
+        }
+    }
+
+    private val appBarConfiguration: AppBarConfiguration by lazy {
+        AppBarConfiguration(TOP_LEVEL_DESTINATION, binding?.drawer)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +75,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), Navigat
     @Suppress("DEPRECATION")
     private fun setupDrawer() {
         // Let's consume any
-        binding.drawerContainer.setOnApplyWindowInsetsListener { v, insets ->
+        binding?.drawerContainer?.setOnApplyWindowInsetsListener { v, insets ->
+
             v.onApplyWindowInsets(insets)
 
             // Consume any horizontal insets and pad all content in. There's not much we can do with horizontal insets
@@ -91,13 +108,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), Navigat
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
         } else {
-            binding.flContainer.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+            binding?.flContainer?.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
                     View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
         }
 
-        binding.navHostFragment.setOnApplyWindowInsetsListener(NoopWindowInsetsListener)
-        binding.statusBarScrim.setOnApplyWindowInsetsListener(HeightTopWindowInsetsListener)
+        binding?.flContainer?.setOnApplyWindowInsetsListener(NoopWindowInsetsListener)
+        binding?.statusBarScrim?.setOnApplyWindowInsetsListener(HeightTopWindowInsetsListener)
     }
 
     private fun setupNavigation() {
@@ -108,58 +125,65 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), Navigat
 
         // Init navigation controller
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment!!.navController
+        navController = navHostFragment?.navController
 
         // Set up drawer
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            currentNavId = destination.id
-            val isTopLevelDestination = TOP_LEVEL_DESTINATION.contains(destination.id)
-            val lockMode = if (isTopLevelDestination) {
-                DrawerLayout.LOCK_MODE_UNLOCKED
-            } else {
-                DrawerLayout.LOCK_MODE_LOCKED_CLOSED
-            }
-            binding.drawer.setDrawerLockMode(lockMode)
-        }
+        navController?.addOnDestinationChangedListener(drawOnDestinationChangedListener)
 
-        binding.navigation.apply {
+        binding?.navigation?.run {
             // Add footer drawer with itemDecoration
             val menu = findViewById<RecyclerView>(R.id.design_navigation_view)
             menu.addItemDecoration(HashtagCinemaDecoration(context))
 
             // Add header drawer
-            navHeaderBinding.root.doOnApplyWindowInserts { view, windowInsetsCompat, viewPaddingState ->
-                // Update padding logo header's top to status bar
-                view.updatePadding(top = viewPaddingState.top + windowInsetsCompat.systemWindowInsetTop)
+            navHeaderBinding?.root?.let {
+                it.doOnApplyWindowInserts { view, windowInsetsCompat, viewPaddingState ->
+                    // Update padding logo header's top to status bar
+                    view.updatePadding(top = viewPaddingState.top + windowInsetsCompat.systemWindowInsetTop)
+                }
+
+                addHeaderView(it)
             }
-            addHeaderView(navHeaderBinding.root)
 
             itemBackground = navigationItemBackground(this@MainActivity)
-            setupWithNavController(navController)
+
+            navController?.let(::setupWithNavController)
         }
     }
 
     override fun registerToolbarWithNavigation(toolbar: Toolbar) {
-        val appBarConfiguration = AppBarConfiguration(TOP_LEVEL_DESTINATION, binding.drawer)
-        toolbar.apply {
-            setupWithNavController(navController, appBarConfiguration)
-            inflateMenu(R.menu.menu_main)
+        navController?.let {
+            toolbar.setupWithNavController(it, appBarConfiguration)
+            toolbar.inflateMenu(R.menu.menu_main)
         }
     }
 
     override fun onBackPressed() {
-        if (binding.drawer.isDrawerOpen(binding.navigation)) {
-            binding.drawer.closeDrawer(GravityCompat.START)
+        if (binding?.drawer?.isDrawerOpen(binding?.navigation!!) == true) {
+            binding?.drawer?.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
+    }
+
+    override fun onDestroy() {
+        binding?.run {
+            drawerContainer.setOnApplyWindowInsetsListener(null)
+            flContainer.setOnApplyWindowInsetsListener(null)
+            statusBarScrim.setOnApplyWindowInsetsListener(null)
+        }
+        navController?.removeOnDestinationChangedListener(drawOnDestinationChangedListener)
+        navController = null
+        navHeaderBinding = null
+        navHostFragment = null
+        super.onDestroy()
     }
 
     companion object {
         private const val NAV_ID_NONE = -1
 
         private val TOP_LEVEL_DESTINATION = setOf(
-            R.id.navigation_home,
+            R.id.navigation_movie_trending,
             R.id.navigation_information,
             R.id.navigation_setting
         )
