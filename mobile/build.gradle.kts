@@ -34,7 +34,9 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-        freeCompilerArgs = freeCompilerArgs + "-Xallow-result-return-type"
+        freeCompilerArgs = freeCompilerArgs +
+                "-Xallow-result-return-type" +
+                "-Xopt-in=kotlin.RequiresOptIn"
     }
 }
 
@@ -66,6 +68,7 @@ dependencies {
     kapt(Libraries.hiltCompiler)
     kapt(Libraries.hiltAndroidXCompiler)
     kapt(Libraries.roomCompiler)
+    kapt(Libraries.glideCompiler)
     compileOnly(Libraries.javaxAnnotation)
     compileOnly(Libraries.javaxInject)
 
@@ -94,4 +97,6 @@ dependencies {
     implementation(Libraries.firebaseCrashlytics)
     implementation(Libraries.viewPager2)
     implementation(Libraries.indicator)
+    implementation(Libraries.glide)
+    implementation(Libraries.paging)
 }

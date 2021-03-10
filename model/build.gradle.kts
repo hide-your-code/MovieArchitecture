@@ -11,4 +11,5 @@ java {
 dependencies {
     implementation(Libraries.ktxCore)
     implementation(Libraries.kotlinStdLib)
+    implementation(Libraries.gson)
 }

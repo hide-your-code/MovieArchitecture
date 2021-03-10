@@ -7,7 +7,18 @@
     <string name="description_app">Android Jetpack, Hilt, … và còn nhiều thứ khác nữa</string>
 
     <!-- Title -->
-    <string name="title_home">Trang chủ</string>
+    <string name="title_movie">Movie thịnh hành</string>
+    <string name="title_tv">TV thịnh hành</string>
     <string name="title_setting">Cài đặt</string>
     <string name="title_information">Thông tin</string>
+
+    <!-- Menu home -->
+    <string name="menu_search">Tìm kiếm</string>
+
+    <!-- Tab Movie and TV -->
+    <string-array name="tab_movie_and_tv">
+        <item>Phổ biến</item>
+        <item>Hàng đầu</item>
+        <item>Sắp ra mắt</item>
+    </string-array>
 </resources>

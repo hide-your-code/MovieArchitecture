@@ -22,11 +22,18 @@
         <item name="fontFamily">@font/google_sans_medium</item>
     </style>
 
+    <!-- For button -->
     <style name="TextAppearance.MovieArc.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="fontFamily">@font/google_sans_medium</item>
         <item name="android:fontFamily">@font/google_sans_medium</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:letterSpacing">0</item>
+    </style>
+
+    <!-- For tab layout home -->
+    <style name="TextAppearance.MovieArc.TabLayout" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/google_sans_medium</item>
     </style>
 
     <!-- Widget style -->
