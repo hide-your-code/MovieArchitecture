@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="minhdtm.example.movieapparchitecture.ui.home.MovieTrendingFragment"
+        android:name="minhdtm.example.movieapparchitecture.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_movie_trending" />
+        tools:layout="@layout/fragment_home" />
 </navigation>

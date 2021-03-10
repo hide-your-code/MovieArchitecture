@@ -17,11 +17,4 @@
 
     <color name="black_80">#80000000</color>
     <color name="black_aa">#aa000000</color>
-
-    <!-- Tab layout -->
-    <color name="color_tab_indicator">#FE6D8E</color>
-    <color name="color_tab_select">#000000</color>
-    <color name="color_tab">#4D12153D</color>
-    <color name="color_stoke_genre">#2612153D</color>
-    <color name="color_text_genre">#434670</color>
 </resources>

@@ -13,7 +13,7 @@ object Libraries {
         const val lifecycle = "2.2.0"
 
         // Paging
-        const val paging = "3.0.0-beta01"
+        const val paging = "3.0.0-alpha12"
 
         // Room
         const val room = "2.3.0-alpha03"
@@ -85,7 +85,6 @@ object Libraries {
 
     // Image
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
-    const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
     // Json
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
@@ -125,11 +124,11 @@ object Libraries {
 
     // ViewPager 2
     const val viewPager2 = "androidx.viewpager2:viewpager2:${Versions.viewPager2}"
-    //endregion
 
     // Ink page indicator
     const val indicator = "com.tbuonomo.andrui:viewpagerdotsindicator:${Versions.indicator}"
 
     // Leak Canary
     const val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakCanary}"
+    //endregion
 }

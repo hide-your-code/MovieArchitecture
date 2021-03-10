@@ -2,8 +2,10 @@ package minhdtm.example.movieapparchitecture.ui.onboarding.welcome
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import minhdtm.example.movieapparchitecture.R
@@ -36,13 +38,14 @@ class WelcomeFragment : BaseFragment<FragmentWelcomeBinding, WelcomeViewModel>()
         }
     }
 
-    override fun initView() {
-        super.initView()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        bindViewModel()
         setupViewPager()
     }
 
-    override fun bindViewModel() {
+    private fun bindViewModel() {
         viewModel.navigateMainActivity.eventObserve(viewLifecycleOwner) {
             requireActivity().run {
                 startActivity(Intent(this, MainActivity::class.java))

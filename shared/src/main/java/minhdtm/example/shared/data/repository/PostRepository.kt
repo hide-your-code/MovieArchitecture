@@ -8,17 +8,17 @@ import minhdtm.example.shared.result.Result
 import javax.inject.Inject
 import javax.inject.Singleton
 
-interface GenresRepository {
-    fun getGenres(): Flow<Result<Genres>>
+interface PostRepository {
+    fun getPost(): Flow<Result<Genres>>
 }
 
 @Singleton
-open class DefaultGenresRepository @Inject constructor(private val remote: ApiClient) : GenresRepository {
+open class DefaultPostRepository @Inject constructor(private val apiClient: ApiClient) : PostRepository {
 
-    override fun getGenres(): Flow<Result<Genres>> = flow {
+    override fun getPost(): Flow<Result<Genres>> = flow {
         emit(Result.Loading)
-        if (remote.getGenres().isSuccessful) {
-            emit(Result.Success(remote.getGenres().body() ?: Genres.empty))
+        if (apiClient.getPost().isSuccessful) {
+            emit(Result.Success(apiClient.getPost().body() ?: Genres.empty))
         } else {
             emit(Result.Error(Exception("Error")))
         }

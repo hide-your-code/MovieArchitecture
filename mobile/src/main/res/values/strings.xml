@@ -7,18 +7,7 @@
     <string name="description_app">Android Jetpack, Hilt, … and much more</string>
 
     <!-- Title -->
-    <string name="title_movie">Movie trending</string>
-    <string name="title_tv">TV trending</string>
+    <string name="title_home">Home</string>
     <string name="title_setting">Setting</string>
     <string name="title_information">Information</string>
-
-    <!-- Menu home -->
-    <string name="menu_search">Search</string>
-
-    <!-- Tab Movie and TV -->
-    <string-array name="tab_movie_and_tv">
-        <item>Popular</item>
-        <item>Top Rated</item>
-        <item>Upcoming</item>
-    </string-array>
 </resources>

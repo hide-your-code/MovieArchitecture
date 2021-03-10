@@ -17,12 +17,7 @@ object Constant {
         //endregion
 
         //region Fragment
-        // Home
         const val FRAGMENT_HOME = "home"
-        const val FRAGMENT_HOME_MOVIE_TAB = "home_movie_tab"
-        const val FRAGMENT_HOME_MOVIE_TRENDING_TAB = "home_movie_trending_tab"
-
-        // Onboarding
         const val FRAGMENT_WELCOME = "welcome"
         const val FRAGMENT_FIRST_ONBOARDING = "first_onboarding"
         const val FRAGMENT_SECOND_ONBOARDING = "second_onboarding"

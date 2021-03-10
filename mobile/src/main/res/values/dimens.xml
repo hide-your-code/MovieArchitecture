@@ -17,8 +17,4 @@
     <dimen name="nav_drawer_width">@dimen/match_parent</dimen>
 
     <item name="match_parent" format="integer" type="dimen">-1</item>
-
-    <!-- Home Movie and TV -->
-<!--    <dimen name="height_movie_item">480dp</dimen>-->
-    <dimen name="width_movie_item">300dp</dimen>
 </resources>

@@ -6,11 +6,12 @@ import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 import minhdtm.example.movieapparchitecture.R
 import minhdtm.example.movieapparchitecture.core.CoreFragment
+import minhdtm.example.movieapparchitecture.extension.autoClear
 import minhdtm.example.shared.analytics.AnalyticsHelper
 import timber.log.Timber
-import javax.inject.Inject
 
 abstract class BaseFragment<Binding : ViewDataBinding, VM : ViewModel> : CoreFragment<Binding, VM>() {
 
@@ -19,11 +20,7 @@ abstract class BaseFragment<Binding : ViewDataBinding, VM : ViewModel> : CoreFra
 
     abstract val screenName: String
 
-    open val title: String? = ""
-
     open var navigationHost: NavigationHost? = null
-
-    open val isVisibleSearchMenu: Boolean = true
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -48,29 +45,13 @@ abstract class BaseFragment<Binding : ViewDataBinding, VM : ViewModel> : CoreFra
         analytics.sendScreenView(screenName, requireActivity(), this)
 
         setupToolbar(view)
-
-        initView()
-        bindViewModel()
     }
-
-    open fun initView() {}
-
-    open fun bindViewModel() {}
 
     private fun setupToolbar(view: View) {
         val host = navigationHost ?: return
         val mainToolbar: Toolbar = view.findViewById(R.id.toolbar) ?: return
         mainToolbar.apply {
             host.registerToolbarWithNavigation(this)
-
-            val searchItem = mainToolbar.menu.findItem(R.id.menu_search)
-            searchItem.isVisible = isVisibleSearchMenu
-
-            title = if (this@BaseFragment.title.isNullOrBlank()) {
-                ""
-            } else {
-                this@BaseFragment.title
-            }
         }
     }
 }
